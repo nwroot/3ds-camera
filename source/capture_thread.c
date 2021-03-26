@@ -42,8 +42,6 @@ void capture_thread_function(void *capture_context_ptr) {
     while(1) {
         LightEvent_Wait(capture_context->capture_thread_event);
         
-        //printf("\nStart capture\n");
-        
         if(capture_context->exit) {
             break;
         }
@@ -72,7 +70,6 @@ void capture_thread_function(void *capture_context_ptr) {
             if(bytes_written != RGB8_IMAGE_SIZE) {
                 printf("Failed to write image data for file: %s\n", name);
             }
-            //FSFILE_Flush(file_l);
             FSFILE_Close(file_l);
         }
         
@@ -90,12 +87,10 @@ void capture_thread_function(void *capture_context_ptr) {
             if(bytes_written != RGB8_IMAGE_SIZE) {
                 printf("Failed to write image data for file: %s\n", name);
             }
-            //FSFILE_Flush(file_r);
             FSFILE_Close(file_r);
         }
         
         capture_context->busy = 0;
         __dmb();
-        //printf("Flushing data, this may take a while...\n");
     }
 }

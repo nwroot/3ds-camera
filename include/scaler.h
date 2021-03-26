@@ -10,9 +10,6 @@ extern uint16_t scale_y_map[240];
 
 void init_scaler(void);
 
-//void inline vga_to_3ds_scale(uint8_t *src, uint8_t *dst, uint8_t pixel_width);
-
-
 void inline __attribute__((always_inline)) vga_to_3ds_scale(uint8_t *src, uint8_t *dst, uint8_t pixel_width) {
     for(uint16_t y = 0; y < 240; y++) {
         for(uint16_t x = 0; x < 400; x++) {
@@ -41,4 +38,3 @@ void inline __attribute__((always_inline)) vga_to_3ds_scale_fb(uint8_t *src, uin
     }
 };
 
-//void simple_scale(uint8_t *src, uint8_t *dst, size_t src_width, size_t src_height, size_t dst_width, size_t dst_height, uint8_t pixel_width);

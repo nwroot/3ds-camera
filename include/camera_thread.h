@@ -7,7 +7,6 @@ struct camera_context_t {
     uint16_t bufsize;
     uint8_t *buffer;
     uint8_t exit;
-    //uint8_t *next_buffer;
 };
 
 void camera_thread_function(void *camera_context_ptr);
